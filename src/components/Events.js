@@ -30,26 +30,93 @@ const Events = () => {
   const [editableDetail, setEditableDetail] = useState("");
   const [isChecked, setIsChecked] = useState(false);
 
+  // Updated divisionMap with added "code" for each division
   const divisionMap = {
-    DC: { name: "BCA-2024-DC MBCA", link: "https://www.wrike.com/open.htm?id=1278006298" },
-    DRC: { name: "BCA-2024-DRC Grha Asia Sby", link: "https://www.wrike.com/open.htm?id=1184331369" },
-    KP: { name: "BCA-2024-KP Extention", link: "https://www.wrike.com/open.htm?id=1184331441" },
-    BRANCH: { name: "Maintenance Cabang BCA 2024", link: "https://www.wrike.com/open.htm?id=1030475273" },
-    PEMREK: { name: "Maintenance Perangkat REM 2024", link: "https://www.wrike.com/open.htm?id=1060642290" },
-    IPTEL: { name: "Maintenance IPTEL BCA 2024", link: "https://www.wrike.com/open.htm?id=1257841515" },
-    CISCO: { name: "Renewal Maintenance Cisco 2024", link: "https://www.wrike.com/open.htm?id=1135457903" },
-    ATM: { name: "Renewal CP ATM E2E", link: "https://www.wrike.com/open.htm?id=1229068051" },
-    NGIPS: { name: "Cisco IPS Fase 3 (block IB  TP  PI & BCAF)", link: "https://www.wrike.com/open.htm?id=1202939420" },
-    ISE: { name: "Maintenance Network WPI", link: "https://www.wrike.com/open.htm?id=1060641749" },
+    DC: {
+      name: "BCA-2024-DC MBCA",
+      link: "https://www.wrike.com/open.htm?id=1278006298",
+      code: "[TB002724D0049]",
+    },
+    DRC: {
+      name: "BCA-2024-DRC Grha Asia Sby",
+      link: "https://www.wrike.com/open.htm?id=1184331369",
+      code: "[TB002724D0059]",
+    },
+    KP: {
+      name: "BCA-2024-KP Extention",
+      link: "https://www.wrike.com/open.htm?id=1184331441",
+      code: "[TB002724D0039]",
+    },
+    BRANCH: {
+      name: "Maintenance Cabang BCA 2024",
+      link: "https://www.wrike.com/open.htm?id=1030475273",
+      code: "[TB002724D0019]",
+    },
+    PEMREK: {
+      name: "Maintenance Perangkat REM 2024",
+      link: "https://www.wrike.com/open.htm?id=1060642290",
+      code: "[TB002724D0029]",
+    },
+    IPTEL: {
+      name: "Maintenance IPTEL BCA 2024",
+      link: "https://www.wrike.com/open.htm?id=1257841515",
+      code: "[TB002724D0099]",
+    },
+    CISCO: {
+      name: "Renewal Maintenance Cisco 2024",
+      link: "https://www.wrike.com/open.htm?id=1135457903",
+      code: "[TB002724D0009]",
+    },
+    ATM: {
+      name: "Renewal CP ATM E2E",
+      link: "https://www.wrike.com/open.htm?id=1229068051",
+      code: "[TB002724D003F9]",
+    },
+    NGIPS: {
+      name: "Cisco IPS Fase 3 (block IB  TP  PI & BCAF)",
+      link: "https://www.wrike.com/open.htm?id=1202939420",
+      code: "[TB002724D00S69]",
+    },
+    ISE: {
+      name: "Maintenance Network WPI",
+      link: "https://www.wrike.com/open.htm?id=1060641749",
+      code: "[TB002724D006D9]",
+    },
+  };
+
+  // Optional: If your select options don't match the keys exactly,
+  // you can map them here. For example, if "KP Ext" is chosen, map to "KP":
+  const getDivisionKey = (selected) => {
+    switch (selected) {
+      case "KP Ext":
+        return "KP";
+      case "CISCO BCAD":
+        return "CISCO";
+      case "ATM Checkpoint":
+        return "ATM";
+      case "ISE BCAF":
+        return "ISE";
+      default:
+        return selected;
+    }
   };
 
   const handleCheck = () => {
     let titlePrefix = workingType === "Implement" ? "[I]" : "[N]";
-    let divisionText = divisionMap[division].name;
-    let linkWrike = divisionMap[division].link;
+    // Use the helper function to map the division value if needed
+    const divisionKey = getDivisionKey(division);
+    let divisionData = divisionMap[divisionKey];
+    if (!divisionData) {
+      alert("Selected division is not valid in the mapping.");
+      return;
+    }
+    let divisionText = divisionData.name;
+    let divisionCode = divisionData.code;
+    let linkWrike = divisionData.link;
     let engineerName = user.displayName;
 
-    let title = `${titlePrefix} ${divisionText} ; ${whatToDo}`;
+    // Updated title string with the division code inserted
+    let title = `${titlePrefix} ${divisionCode} ${divisionText} ; ${whatToDo}`;
     let detail = `[${workingType}] ${userType} ; ${divisionText} ; ${whatToDo} | ${caseSituation} ; ${caseId} ; ${situationRole} ; ${riskProblem} ; ${devices} ; ${location} ; ${description} ; ${problemAnalysis} ; ${request} ; ${userRequest} ; ${engineerName} ; ${linkWrike}`;
     
     setGeneratedTitle(title);
@@ -95,24 +162,7 @@ const Events = () => {
           body: JSON.stringify(event),
         });
         alert("Event created successfully");
-        // Reset form fields
-        // setWorkingType("");
-        // setDivision("");
-        // setWhatToDo("");
-        // setUserType("");
-        // setCaseSituation("");
-        // setCaseId("");
-        // setSituationRole("");
-        // setRiskProblem("");
-        // setDevices("");
-        // setLocation("");
-        // setDescription("");
-        // setProblemAnalysis("");
-        // setRequest("");
-        // setUserRequest("");
-        // setDate("");
-        // setStartTime("");
-        // setEndTime("");
+        // Reset form fields if needed
         setGeneratedTitle("");
         setGeneratedDetail("");
         setEditableTitle("");
@@ -254,4 +304,3 @@ const Events = () => {
 };
 
 export default Events;
-
