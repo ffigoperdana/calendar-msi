@@ -50,7 +50,7 @@ const Events = () => {
     BRANCH: {
       name: "Maintenance Cabang BCA 2024",
       link: "https://www.wrike.com/open.htm?id=1030475273",
-      code: "[TB002724D0019]",
+      code: "[TB002724D0069]",
     },
     PEMREK: {
       name: "Maintenance Perangkat REM 2024",
