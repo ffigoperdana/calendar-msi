@@ -27,8 +27,8 @@ const ExportEvents = () => {
             showDeleted: false,
             singleEvents: true,
             orderBy: "startTime",
-            timeMin: new Date("2024-01-01T00:00:00Z").toISOString(),
-            timeMax: new Date("2024-12-31T23:59:59Z").toISOString(),
+            timeMin: new Date("2025-01-01T00:00:00Z").toISOString(),
+            timeMax: new Date("2025-12-31T23:59:59Z").toISOString(),
           });
 
           const fetchedEvents = response.result.items.map(event => ({

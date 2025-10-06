@@ -33,37 +33,37 @@ const Events = () => {
   // Updated divisionMap with added "code" for each division
   const divisionMap = {
     DC: {
-      name: "BCA-2024-DC MBCA",
+      name: "BCA-2025-DC MBCA",
       link: "https://www.wrike.com/open.htm?id=1278006298",
       code: "[TB002724D0049]",
     },
     DRC: {
-      name: "BCA-2024-DRC Grha Asia Sby",
+      name: "BCA-2025-DRC Grha Asia Sby",
       link: "https://www.wrike.com/open.htm?id=1184331369",
       code: "[TB002724D0059]",
     },
     KP: {
-      name: "BCA-2024-KP Extention",
+      name: "BCA-2025-KP Extention",
       link: "https://www.wrike.com/open.htm?id=1184331441",
       code: "[TB002724D0039]",
     },
     BRANCH: {
-      name: "Maintenance Cabang BCA 2024",
+      name: "Maintenance Cabang BCA 2025",
       link: "https://www.wrike.com/open.htm?id=1030475273",
       code: "[TB002724D0069]",
     },
     PEMREK: {
-      name: "Maintenance Perangkat REM 2024",
+      name: "Maintenance Perangkat REM 2025",
       link: "https://www.wrike.com/open.htm?id=1060642290",
       code: "[TB002724D0029]",
     },
     IPTEL: {
-      name: "Maintenance IPTEL BCA 2024",
+      name: "Maintenance IPTEL BCA 2025",
       link: "https://www.wrike.com/open.htm?id=1257841515",
       code: "[TB002724D0099]",
     },
     CISCO: {
-      name: "Renewal Maintenance Cisco 2024",
+      name: "Renewal Maintenance Cisco 2025",
       link: "https://www.wrike.com/open.htm?id=1135457903",
       code: "[TB002724D0009]",
     },
