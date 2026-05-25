@@ -14,8 +14,9 @@ const Navbar = () => {
   return (
     <nav className="bg-gray-900 text-white mb-5">
       <div className="container mx-auto px-4 flex flex-wrap items-center justify-between py-3">
-        <Link className="text-xl font-bold text-white no-underline" to="/">
-          Calendar App
+        <Link className="flex items-center gap-2 text-xl font-bold text-white no-underline" to="/">
+          <img src="/l_MSTI Logo_Transparent.png" alt="Logo" className="h-8 w-auto" />
+          Calendar MSI
         </Link>
         <button
           className="lg:hidden inline-flex items-center justify-center p-2 rounded text-gray-400 hover:text-white focus:outline-none"
