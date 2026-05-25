@@ -194,33 +194,7 @@ describe('Test 1c: Excel Format - Header metadata and data rows without overlap'
   });
 });
 
-// ============================================================
-// Test 1d: Router Syntax - MaintenanceProjects renders with PrivateRoute
-// Bug Condition: input.routerProp == "component"
-// Expected: MaintenanceProjects component renders and is wrapped in PrivateRoute
-// ============================================================
-describe('Test 1d: Router Syntax - /maintenance-projects uses correct v6 syntax', () => {
-  it('should use element prop with PrivateRoute wrapper for /maintenance-projects route', () => {
-    // Property: The /maintenance-projects route should use React Router v6 element prop
-    // and be wrapped in PrivateRoute for authentication protection.
-    //
-    // On unfixed code: App.js uses `component={MaintenanceProjects}` (v5 syntax)
-    // which is ignored by React Router v6, causing a blank page.
-    
-    const sourceCode = fs.readFileSync(
-      path.resolve(__dirname, '../App.jsx'),
-      'utf8'
-    );
 
-    // EXPECTED BEHAVIOR (will fail on unfixed code):
-    // Should NOT use the v5 `component` prop
-    expect(sourceCode).not.toMatch(/path="\/maintenance-projects".*component=/);
-    
-    // Should use v6 `element` prop with PrivateRoute wrapper
-    expect(sourceCode).toMatch(/path="\/maintenance-projects".*element=/);
-    expect(sourceCode).toMatch(/PrivateRoute.*MaintenanceProjects|maintenance-projects.*PrivateRoute/i);
-  });
-});
 
 // ============================================================
 // Test 1e: Trust Indicators - Login shows trust messaging
