@@ -43,7 +43,7 @@ const TermsOfService = () => {
       <section className="mb-8">
         <h2 className="text-xl font-semibold mb-3">5. Intellectual Property</h2>
         <p className="mb-3">
-          The app and its original content, features, and functionality are owned by PT Mastersystem Infotama Tbk. Tbk. and are protected by applicable intellectual property laws.
+          The app and its original content, features, and functionality are owned by PT Mastersystem Infotama Tbk. and are protected by applicable intellectual property laws.
         </p>
       </section>
 

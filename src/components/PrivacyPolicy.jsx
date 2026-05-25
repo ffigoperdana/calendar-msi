@@ -9,7 +9,7 @@ const PrivacyPolicy = () => {
       <section className="mb-8">
         <h2 className="text-xl font-semibold mb-3">Overview</h2>
         <p className="mb-3">
-          Calendar MSI ("we", "our", "the app") is a calendar management tool built for internal use at PT Mastersystem Infotama Tbk. Tbk.. This privacy policy explains how we handle your information when you use our application.
+          Calendar MSI ("we", "our", "the app") is a calendar management tool built for internal use at PT Mastersystem Infotama Tbk. This privacy policy explains how we handle your information when you use our application.
         </p>
       </section>
 
