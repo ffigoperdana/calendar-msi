@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { 
-  Table, 
-  TableBody, 
-  TableCell, 
-  TableContainer, 
-  TableHead, 
-  TableRow, 
-  Paper, 
-  CircularProgress, 
-  Typography 
-} from '@mui/material';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
 
 const MaintenanceProjects = () => {
   const [projects, setProjects] = useState([]);
@@ -18,8 +15,8 @@ const MaintenanceProjects = () => {
 
   useEffect(() => {
     const fetchProjects = async () => {
-      const API_KEY = process.env.REACT_APP_GOOGLE_SHEETS_API_KEY;
-      const SPREADSHEET_ID = process.env.REACT_APP_GOOGLE_SHEETS_SPREADSHEET_ID;
+      const API_KEY = import.meta.env.VITE_GOOGLE_SHEETS_API_KEY;
+      const SPREADSHEET_ID = import.meta.env.VITE_GOOGLE_SHEETS_SPREADSHEET_ID;
       const RANGE = 'Sheet1!A2:G';
       const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}?key=${API_KEY}`;
 
@@ -52,38 +49,57 @@ const MaintenanceProjects = () => {
 
   if (loading) {
     return (
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-        <CircularProgress />
+      <div className="flex justify-center items-center h-screen">
+        <svg
+          className="animate-spin h-10 w-10 text-primary"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <circle
+            className="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            strokeWidth="4"
+          />
+          <path
+            className="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+          />
+        </svg>
       </div>
     );
   }
 
   if (error) {
     return (
-      <Typography variant="h6" color="error" align="center">
+      <p className="text-center text-destructive text-lg font-semibold">
         {error}
-      </Typography>
+      </p>
     );
   }
 
   return (
-    <div style={{ padding: '20px' }}>
-      <Typography variant="h4" gutterBottom>
+    <div className="p-5">
+      <h2 className="text-2xl font-bold mb-4">
         Proyek Pemeliharaan
-      </Typography>
-      <TableContainer component={Paper}>
+      </h2>
+      <div className="rounded-md border">
         <Table>
-          <TableHead>
+          <TableHeader>
             <TableRow>
-              <TableCell>Mulai</TableCell>
-              <TableCell>Selesai</TableCell>
-              <TableCell>Status</TableCell>
-              <TableCell>Kode Proyek</TableCell>
-              <TableCell>Tipe Pemeliharaan</TableCell>
-              <TableCell>Nama Proyek</TableCell>
-              <TableCell>Link Wrike</TableCell>
+              <TableHead>Mulai</TableHead>
+              <TableHead>Selesai</TableHead>
+              <TableHead>Status</TableHead>
+              <TableHead>Kode Proyek</TableHead>
+              <TableHead>Tipe Pemeliharaan</TableHead>
+              <TableHead>Nama Proyek</TableHead>
+              <TableHead>Link Wrike</TableHead>
             </TableRow>
-          </TableHead>
+          </TableHeader>
           <TableBody>
             {projects.map((project, index) => (
               <TableRow key={index}>
@@ -94,7 +110,12 @@ const MaintenanceProjects = () => {
                 <TableCell>{project.tipeMaintenance}</TableCell>
                 <TableCell>{project.namaProject}</TableCell>
                 <TableCell>
-                  <a href={project.linkWrike} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={project.linkWrike}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary underline hover:text-primary/80"
+                  >
                     {project.linkWrike}
                   </a>
                 </TableCell>
@@ -102,7 +123,7 @@ const MaintenanceProjects = () => {
             ))}
           </TableBody>
         </Table>
-      </TableContainer>
+      </div>
     </div>
   );
 };

@@ -44,10 +44,9 @@ const Calendar = () => {
   }, [user, token]);
 
   return (
-    <div>
-      <h2 className="text-center mt-2">Calendar</h2>
-      <div className="container mt-5 mb-5">
-        <div className="mt-5"></div>
+    <div className="space-y-4">
+      <h2 className="text-center text-2xl font-semibold mt-2">Calendar</h2>
+      <div className="container mx-auto px-4 py-8">
         <BigCalendar
           localizer={localizer}
           events={events}

@@ -5,16 +5,13 @@
       "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "build"
+        "distDir": "dist"
       }
     }
   ],
   "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+    { "source": "/(.*)", "destination": "/index.html" }
   ],
-  "env": {
-    "NODE_OPTIONS": "--legacy-peer-deps"
-  },
-  "buildCommand": "npm install --legacy-peer-deps && npm run build",
+  "buildCommand": "vite build",
   "installCommand": "npm install --legacy-peer-deps"
 }

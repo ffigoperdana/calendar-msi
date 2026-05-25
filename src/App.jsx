@@ -8,7 +8,6 @@ import Events from "./components/Events";
 import Calendar from "./components/Calendar";
 import AllEvents from "./components/AllEvents";
 import ExportEvents from "./components/ExportEvents";
-import MaintenanceProjects from './components/MaintenanceProjects';
 
 const App = () => {
   const { user } = useContext(AuthContext);
@@ -50,7 +49,6 @@ const App = () => {
             </PrivateRoute>
           }
         />
-        <Route path="/maintenance-projects" component={MaintenanceProjects} />
         <Route path="/" element={<Navigate to="/login" />} />
       </Routes>
     </Router>

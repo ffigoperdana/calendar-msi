@@ -1,0 +1,37 @@
+# Dependencies
+node_modules
+
+# Version control
+.git
+
+# Build output
+dist
+
+# Environment files
+.env
+.env.local
+.env*.local
+.env.*
+
+# IDE and OS files
+.vscode
+.DS_Store
+
+# CI/CD configuration
+.github
+
+# Docker-specific files
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Documentation and logs
+*.md
+*.log
+npm-debug.log*
+
+# Vercel
+.vercel
+
+# Test coverage
+coverage
