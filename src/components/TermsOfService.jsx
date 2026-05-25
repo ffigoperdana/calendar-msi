@@ -16,7 +16,7 @@ const TermsOfService = () => {
       <section className="mb-8">
         <h2 className="text-xl font-semibold mb-3">2. Description of Service</h2>
         <p className="mb-3">
-          Calendar MSI is a calendar management and event tracking tool designed for internal use at PT Mitra Solusi Infokom. The app allows users to view, manage, and export calendar events using their Google account.
+          Calendar MSI is a calendar management and event tracking tool designed for internal use at PT Mastersystem Infotama Tbk. Tbk.. The app allows users to view, manage, and export calendar events using their Google account.
         </p>
       </section>
 
@@ -43,7 +43,7 @@ const TermsOfService = () => {
       <section className="mb-8">
         <h2 className="text-xl font-semibold mb-3">5. Intellectual Property</h2>
         <p className="mb-3">
-          The app and its original content, features, and functionality are owned by PT Mitra Solusi Infokom and are protected by applicable intellectual property laws.
+          The app and its original content, features, and functionality are owned by PT Mastersystem Infotama Tbk. Tbk. and are protected by applicable intellectual property laws.
         </p>
       </section>
 
