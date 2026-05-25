@@ -8,6 +8,8 @@ import Events from "./components/Events";
 import Calendar from "./components/Calendar";
 import AllEvents from "./components/AllEvents";
 import ExportEvents from "./components/ExportEvents";
+import PrivacyPolicy from "./components/PrivacyPolicy";
+import TermsOfService from "./components/TermsOfService";
 
 const App = () => {
   const { user } = useContext(AuthContext);
@@ -49,6 +51,8 @@ const App = () => {
             </PrivateRoute>
           }
         />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<TermsOfService />} />
         <Route path="/" element={<Navigate to="/login" />} />
       </Routes>
     </Router>
